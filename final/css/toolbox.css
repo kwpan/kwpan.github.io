@@ -93,14 +93,23 @@ span.bolder{
 
 .container-fluid.cover{
     padding: 0px;
-    height: 100vh;
+    height: 84vh;
 }
 
 div.cover>div.row{
-    height: 33.33%;
+    height: 100%;
+    margin: 0px;
 }
 
-div.cover>div.col{
+div.cover>div.row>div.col>div.row{
+    margin: 0px;
+}
+
+div.cover>div.row>div.col{
+    padding: 0px;
+}
+
+div.cover>div.row>div.col>div.row>div.col{
     padding: 0px;
 }
 
@@ -109,11 +118,13 @@ div.cover>div.col{
 }
 
 .navbar.cover{
-    margin-bottom: 10vh;
+    padding-right: 0px;
+    width: 100vw;
 }
 
 .footer.cover{
-    margin-top: 10vh;
+    margin-top: 0px;
+    height: 8vh;
 }
 
 .cover{
@@ -124,3 +135,8 @@ div.cover>div.col{
     background-color: #22262b;
     color: darkgrey;
 }
+
+.padding-0{
+    padding: 0px;
+}
+
