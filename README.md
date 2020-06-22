@@ -1,31 +1,22 @@
-�A�������M�D�D�D²��
-Properties ToolBox 
-�b���z�p��W�A�ɱ`�ݭn�d�����o�U�ت��誺���z�B����ʽ�A�b��ȨϥΤW�A�q�`�]���������ƭȨëD��ơA�]���ݭn�Ѥ����k�f�t����ƾڨӭp��һݼƭȡC
-Properties ToolBox ��z�F�X�ر`�Ϊ��ʽ��ƪ��A�ô��ѨϥΪ̦ۦ��J�Ʀr�D�o�����ʽ誺�\��C
+# Properties ToolBox
 
-�ϥΪ̭n���ϥΧA������
-�q�����������C���i�H��ܻݭn�d�ߪ���ƪ��A�i�J����������A�����U��|�C�X��������ƪ��ƾڡA�é�W�誺��J�椺�A�i�H�ۦ��J�Ʀr�ά�ǲŸ��A�����|�۰ʭp��X�۹�������L�ʽ�A����ܩ�U�ۤ�r�ؤ��C
+## 簡介
 
-�A�b�o���M�D�����F����A�ϥΤF����޳N
-1. BootStrap
-	���D�C�z�LBootStrap���Ѫ�DropDown�ҪO�A��{�i�i�}�����ҿﶵ�A�i�Ѿ�z�P��쪺���P��ƪ��C
-	���e�����ϥ�container�Ϻ����i�H���`��ܩ󤣦P�j�p�������A�÷f�tgrid system�@�����e�ƪ�������D�n�覡(�b��ƪ���W�׬����n)�C
+在物理計算上，時常需要查表取得各種物質的物理、機械性質，在實務使用上，通常因為對應的數值並非整數，因此需要由內插法搭配表格數據來計算所需數值。
+Properties ToolBox 整理了幾種常用的性質資料表，並提供使用者自行輸入其中一性質，自動求得其他對應性質的功能。
 
-2. JavaScript
-	�ʽ��ƪ����ƾڬҥ�JavaScript�HArray���覡�x�s�A��K�N�ƾڤ@�@�����A�åΩ���򤺴��k���d��P�p��C
-	�åѨ�Ө禡�f�t�ϥΨӹ�{�۰ʬd���ä����k�D�Ȫ��\��A���O�Otrend()�PtrendIndex()�C�e�̥ΨӰ������k�A��̫h�ΨӬd��ϥΪ̿�J���ƭȹ����b��ƪ�������m�C
-	�g�LtrendIndex()���ϥΪ̿�J�ƭȤ���Y����A�Y�i��trend()�N�Ө��ƭȹ��J�Ȱ������k�A�D�o��L�������ʽ�C
-3. jQuery
-	�۰ʥͦ���ƪ���A�z�L$("#class").html()���\��A�i�H�f�t�j��A�۰ʱN��ƪ����ƾڥͦ�����C
-	��J�ƾڪ������P��s�A�z�L.keyup()�\��A�i�H�����ϥΪ̿�J���ʧ@�A�é�ϥΪ̿�J����ȫ�A��������J���ƭȡA�æP�B��s�����k���ƭȨ��L�ʽ誺��r��C
+## 使用方法
 
-�A������������S��B�G�I�A����Aı�o����������U�����i�H�b�o��g�W�h�C
+從網站首頁選單列中可以選擇需要查詢的資料表，進入對應頁面後，頁面下方會列出網站的資料表數據，並於上方的輸入格內，可以自行輸入數字或科學符號，網頁會自動計算出相對應的其他性質，並顯示於各自文字框內。
 
-�ѦҸ��
+## 技術內容
 
-BootStrap
-W3school
-jQuery
-
-�W�U��http://myvbbegin.blogspot.com/2014/01/html.html
-form center align:https://stackoverflow.com/questions/9737394/html-how-to-center-align-a-form
+- BootStrap
+  1. 標題列透過BootStrap提供的`dropdown`模板，實現可展開的標籤選項，可供整理同領域的不同資料表。
+  2. 內容部分使用`container`使網頁可以正常顯示於不同大小的頁面，並搭配`grid system`作為內容排版對齊的主要方式(在資料表格上尤為重要)。
+- JavaScript
+  1. 性質資料表的數據皆由JavaScript以`Array`的方式儲存，方便將數據一一對應，並用於後續內插法的查找與計算。
+  2. 自行設計之內插法函式，分別是`trend()`與`trendIndex()`。前者用來做內插法，後者則用來查找使用者輸入的數值對應在資料表內的位置。經過`trendIndex()`找到使用者輸入數值介於某兩行後，即可由`trend()`將該兩行數值對輸入值做內插法，求得其他對應的性質。
+- jQuery
+  1. 自動生成資料表格，透過`$("#class").html()`的功能，可以搭配迴圈，自動將資料表的數據生成表格。
+  2. 輸入數據的偵測與更新，透過`.keyup()`功能，可以偵測使用者輸入的動作，並於使用者輸入任何值後，都偵測輸入的數值，並同步更新內插法的數值到其他性質的文字格。
